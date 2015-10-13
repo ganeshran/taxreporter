@@ -7,6 +7,10 @@ using TaxReporter.Core.Entities;
 
 namespace TaxReporter.Core.Models
 {
+    /// <summary>
+    /// Only the implementations for the entities should be in the CoreProject - which are 
+    /// pure data entities without behaviour
+    /// </summary>
     public class InvoiceEntry: IInvoiceEntry 
     {
         public int InvoiceNumber

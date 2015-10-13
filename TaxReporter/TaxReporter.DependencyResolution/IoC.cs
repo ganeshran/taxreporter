@@ -4,24 +4,27 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using TaxReporter.Core.Entities;
+using TaxReporter.Core.Models;
+using TaxReporter.Core.Services;
+using TaxReporter.Services.Input;
 
 namespace TaxReporter.DependencyResolution
 {
-    public class IoC
+    public static class IoCWrapper
     {
-
-        public void Init()
+        static IContainer _container;
+        public static void InitContainer()
         {
-            ObjectFactory.Configure(config =>
+            _container = new Container(x =>
             {
-                config.Scan(scan =>
-                {
-                    scan.WithDefaultConventions();
-                });
-
-                // the last entry wins if there's more than one - generally it's a good idea to only have one mapping per type
-
+                x.For<IInvoiceReader>().Use<CsvInvoiceReader>();
             });
+        }
+
+        public static T Get<T>()
+        {
+            return _container.GetInstance<T>();
         }
     }
 }

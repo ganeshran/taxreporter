@@ -47,6 +47,16 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\TaxReporter.Core\TaxReporter.Core.csproj">
+      <Project>{55184e4a-2634-4715-b275-f679c2b97efe}</Project>
+      <Name>TaxReporter.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TaxReporter.DependencyResolution\TaxReporter.DependencyResolution.csproj">
+      <Project>{7ae9704a-0503-4d76-9a71-12727648f24f}</Project>
+      <Name>TaxReporter.DependencyResolution</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
