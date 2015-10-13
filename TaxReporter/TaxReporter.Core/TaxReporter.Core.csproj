@@ -42,7 +42,9 @@
     <Compile Include="Entities\IClient.cs" />
     <Compile Include="Entities\IInvoiceEntry.cs" />
     <Compile Include="Enums\ClientType.cs" />
+    <Compile Include="Models\InvoiceEntry.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\IInvoiceReader.cs" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
