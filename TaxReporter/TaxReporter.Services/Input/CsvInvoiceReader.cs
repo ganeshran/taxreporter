@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.IO;
 using TaxReporter.Core.Entities;
 using TaxReporter.Core.Models;
 using TaxReporter.Core.Services;
@@ -7,13 +9,18 @@ namespace TaxReporter.Services.Input
 {
     public class CsvInvoiceReaderService: IInvoiceReaderService
     {
-        public List<IInvoiceEntry> GetInvoiceInputs()
+        public IEnumerable<IParseInvoiceStatus> GetInvoiceInputs(string filePath)
+
         {
-            //dummy implementation 
-            return new List<IInvoiceEntry>()
+            if(!File.Exists(filePath))
+                throw new FileNotFoundException("Input File not Found");
+
+            var fileReader = new StreamReader(filePath);
+            string line = string.Empty;
+            while ((line = fileReader.ReadLine()) != null)
             {
-                new InvoiceEntry(){InvoiceNumber = 1}
-            };
+                yield return new ParseInvoiceStatus(line);
+            }
         }
     }
 }

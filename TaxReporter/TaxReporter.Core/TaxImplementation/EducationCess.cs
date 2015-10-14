@@ -7,9 +7,13 @@ namespace TaxReporter.Core.TaxImplementation
     {
         public string Name { get; set; }
 
-        public EducationCess(ITaxDue childTax)
+        public EducationCess()
         {
             this.Name = "Education Cess";
+        }
+
+        public EducationCess(ServiceTax childTax): this()
+        {
             this.ChildTax = childTax;
         }
 

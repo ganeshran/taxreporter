@@ -14,6 +14,6 @@ namespace TaxReporter.Core.Services
     /// </summary>
     public interface IInvoiceReaderService
     {
-        List<IInvoiceEntry> GetInvoiceInputs();
+        IEnumerable<IParseInvoiceStatus> GetInvoiceInputs(string filePath);
     }
 }

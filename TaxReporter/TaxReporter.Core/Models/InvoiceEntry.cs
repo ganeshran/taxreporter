@@ -13,28 +13,32 @@ namespace TaxReporter.Core.Models
     /// </summary>
     public class InvoiceEntry: IInvoiceEntry 
     {
-        public int InvoiceNumber
-        {
-            get;
-            set;
-        }
+        public IInvoiceField<int> Number { get; set; }
+        public IInvoiceField<string> Client { get; set; }
+        public IInvoiceField<DateTime> InvoiceDate { get; set; }
+        public IInvoiceField<double> Amount { get; set; }
 
-        public IClient Client
+        public InvoiceEntry()
         {
-            get;
-            set;
-        }
-
-        public DateTime InvoiceDate
-        {
-            get;
-            set;
-        }
-
-        public double Amount
-        {
-            get;
-            set;
+            int res;
+            DateTime date;
+            double d;
+            this.Number = new InvoiceField<int>() {Index = 0, Validate = num => int.TryParse(num,out res)};
+            this.Client = new InvoiceField<string>()
+                {
+                    Index = 1,
+                    Validate = num => num.StartsWith("D") || num.StartsWith("I")
+                };
+            this.InvoiceDate = new InvoiceField<DateTime>()
+                {
+                    Index = 2,
+                    Validate = num => DateTime.TryParse(num, out date)
+                };
+            this.Amount = new InvoiceField<double>()
+                {
+                    Index = 3,
+                    Validate = num => Double.TryParse(num, out d)
+                };
         }
     }
 }

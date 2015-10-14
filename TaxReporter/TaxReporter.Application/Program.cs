@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using TaxReporter.Core.Enums;
 using TaxReporter.Core.Services;
+using TaxReporter.Core.Taxes;
 using TaxReporter.DependencyResolution;
 
 namespace TaxReporter.Application
@@ -14,8 +15,7 @@ namespace TaxReporter.Application
         static void Main(string[] args)
         {
             IoCWrapper.InitContainer();
-            var reader = IoCWrapper.Get<IInvoiceReaderService>();
-            var calc = IoCWrapper.Get<ITaxCalculatorService>(ClientType.International.ToString());
+            var ec = IoCWrapper.Get<ITaxDue>("EC");
         }
     }
 }

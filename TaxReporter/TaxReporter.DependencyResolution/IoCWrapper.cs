@@ -8,6 +8,8 @@ using TaxReporter.Core.Entities;
 using TaxReporter.Core.Enums;
 using TaxReporter.Core.Models;
 using TaxReporter.Core.Services;
+using TaxReporter.Core.TaxImplementation;
+using TaxReporter.Core.Taxes;
 using TaxReporter.Services;
 using TaxReporter.Services.Calculator;
 using TaxReporter.Services.Input;
@@ -17,6 +19,7 @@ namespace TaxReporter.DependencyResolution
     public static class IoCWrapper
     {
         static IContainer _container;
+
         public static void InitContainer()
         {
             _container = new Container(x =>
@@ -29,6 +32,12 @@ namespace TaxReporter.DependencyResolution
                     x.For<ITaxCalculatorService>()
                      .Use<InternationalTaxCalculatorService>()
                      .Named(ClientType.International.ToString());
+
+                    x.For<ITaxDue>().Use<ForeignRemitanceTax>().Named("FRT");
+
+                    x.For<ITaxDue>().Use<ServiceTax>().Named("ST");
+
+                    x.For<ITaxDue>().Use<EducationCess>().Named("EC");
                 });
         }
 

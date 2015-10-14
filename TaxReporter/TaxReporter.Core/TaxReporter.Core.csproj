@@ -41,8 +41,12 @@
   <ItemGroup>
     <Compile Include="Entities\IClient.cs" />
     <Compile Include="Entities\IInvoiceEntry.cs" />
+    <Compile Include="Entities\IInvoiceField.cs" />
+    <Compile Include="Entities\IParseInvoiceStatus.cs" />
     <Compile Include="Enums\ClientType.cs" />
     <Compile Include="Models\InvoiceEntry.cs" />
+    <Compile Include="Models\InvoiceField.cs" />
+    <Compile Include="Models\ParseInvoiceStatus.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\IInvoiceReaderService.cs" />
     <Compile Include="Services\ITaxCalculatorService.cs" />

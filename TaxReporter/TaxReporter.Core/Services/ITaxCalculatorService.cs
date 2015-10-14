@@ -4,6 +4,6 @@ namespace TaxReporter.Core.Services
 {
     public interface ITaxCalculatorService
     {
-        double DueTax(IInvoiceEntry invoice);
+        int DueTax(IInvoiceEntry invoice);
     }
 }

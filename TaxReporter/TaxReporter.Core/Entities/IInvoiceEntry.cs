@@ -8,12 +8,12 @@ namespace TaxReporter.Core.Entities
 {
     public interface IInvoiceEntry
     {
-        int InvoiceNumber { get; set; }
+        IInvoiceField<int> Number { get; set; }
 
-        IClient Client { get; set; }
+        IInvoiceField<string> Client { get; set; }
+            
+        IInvoiceField<DateTime> InvoiceDate { get; set; }
 
-        DateTime InvoiceDate { get; set; }
-
-        double Amount { get; set; }
+        IInvoiceField<double> Amount { get; set; }
     }
 }
