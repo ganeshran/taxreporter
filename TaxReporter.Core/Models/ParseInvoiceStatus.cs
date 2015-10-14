@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using TaxReporter.Core.Entities;
+using System.Linq;
 
 namespace TaxReporter.Core.Models
 {
@@ -17,7 +18,7 @@ namespace TaxReporter.Core.Models
         public void AddEntry(string line)
         {
             var entry = new InvoiceEntry();
-            if (!entry.PopulateObject(line.Split(',')))
+            if (!entry.PopulateObject(line.Split(',').Select(x=>x.Trim()).ToArray()))
                 this.IsSuccess = false;
             this.Entries.Add(entry);
         }
