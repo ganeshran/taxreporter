@@ -1,11 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using TaxReporter.Core.Taxes;
 
-namespace TaxReporter.Services.Taxes
+namespace TaxReporter.Core.TaxImplementation
 {
     public class ServiceTax : ITaxDue
     {

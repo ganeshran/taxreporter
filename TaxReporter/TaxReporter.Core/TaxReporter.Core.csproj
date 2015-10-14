@@ -46,8 +46,11 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\IInvoiceReaderService.cs" />
     <Compile Include="Services\ITaxCalculatorService.cs" />
+    <Compile Include="TaxImplementation\EducationCess.cs" />
+    <Compile Include="TaxImplementation\ForeignRemitanceTax.cs" />
     <Compile Include="Taxes\IDerivedTaxDue.cs" />
     <Compile Include="Taxes\ITaxDue.cs" />
+    <Compile Include="TaxImplementation\ServiceTax.cs" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
