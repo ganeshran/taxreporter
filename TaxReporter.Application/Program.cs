@@ -12,8 +12,7 @@ namespace TaxReporter.Application
         private static void Main(string[] args)
         {
             IoCWrapper.InitContainer();
-            //Run(args[0]);
-            Run("D:\\certs\\invalid_invoice_data.csv");
+            Run(args[0]);
         }
 
         public static void Run(string filePath)
