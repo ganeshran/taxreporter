@@ -22,10 +22,14 @@ namespace TaxReporter.Core.Models
                 this.IsSuccess = false;
                 this.InvoiceEntry = null;
             }
-            else
+            this.InvoiceEntry = new InvoiceEntry();
+            if (!this.InvoiceEntry.PopulateObject(line))
             {
-                
+                this.IsSuccess = false;
+                this.ErrorMessage = InvoiceEntry.ErrorMessage;
             }
+
+            this.IsSuccess = true;
         }
     }
 }

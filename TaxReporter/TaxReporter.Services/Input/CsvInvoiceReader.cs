@@ -16,7 +16,7 @@ namespace TaxReporter.Services.Input
                 throw new FileNotFoundException("Input File not Found");
 
             var fileReader = new StreamReader(filePath);
-            string line = string.Empty;
+            var line = string.Empty;
             while ((line = fileReader.ReadLine()) != null)
             {
                 yield return new ParseInvoiceStatus(line);

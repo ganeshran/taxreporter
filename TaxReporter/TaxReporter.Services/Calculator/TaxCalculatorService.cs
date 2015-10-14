@@ -12,7 +12,7 @@ namespace TaxReporter.Services.Calculator
 
         public int DueTax(IInvoiceEntry invoice)
         {
-            return TaxesDue.Sum(taxDue => taxDue.CalculateTaxDue(invoice.Amount.Value));
+            return TaxesDue.Sum(taxDue => taxDue.CalculateTaxDue(invoice.Amount));
         }
     }
 }

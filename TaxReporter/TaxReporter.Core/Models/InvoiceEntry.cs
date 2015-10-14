@@ -13,32 +13,47 @@ namespace TaxReporter.Core.Models
     /// </summary>
     public class InvoiceEntry: IInvoiceEntry 
     {
-        public IInvoiceField<int> Number { get; set; }
-        public IInvoiceField<string> Client { get; set; }
-        public IInvoiceField<DateTime> InvoiceDate { get; set; }
-        public IInvoiceField<double> Amount { get; set; }
+        public int Number { get; set; }
+        public string Client { get; set; }
+        public DateTime InvoiceDate { get; set; }
+        public double Amount { get; set; }
+        public string ErrorMessage { get; set; }
 
-        public InvoiceEntry()
+        public bool PopulateObject(string[] line)
         {
-            int res;
-            DateTime date;
-            double d;
-            this.Number = new InvoiceField<int>() {Index = 0, Validate = num => int.TryParse(num,out res)};
-            this.Client = new InvoiceField<string>()
-                {
-                    Index = 1,
-                    Validate = num => num.StartsWith("D") || num.StartsWith("I")
-                };
-            this.InvoiceDate = new InvoiceField<DateTime>()
-                {
-                    Index = 2,
-                    Validate = num => DateTime.TryParse(num, out date)
-                };
-            this.Amount = new InvoiceField<double>()
-                {
-                    Index = 3,
-                    Validate = num => Double.TryParse(num, out d)
-                };
+            int number;
+            double amount;
+            DateTime invDate;
+
+            if (!int.TryParse(line[0], out number))
+            {
+                this.ErrorMessage = "First column not a number"; 
+                return false;
+            }
+            this.Number = number;
+
+            if (!line[1].StartsWith("D") || !line[1].StartsWith("I"))
+            {
+                this.ErrorMessage = "Invalid Client Number";
+                return false;
+            }
+            this.Client = line[1];
+
+            if (!DateTime.TryParse(line[2], out invDate))
+            {
+                this.ErrorMessage = "Invalid Date";
+                return false;
+            }
+            this.InvoiceDate = invDate;
+
+            if (!double.TryParse(line[3], out amount))
+            {
+                this.ErrorMessage = "Invalid Format for Invoice amount";
+                return false;
+            }
+            this.Amount = amount;
+            return true;
+
         }
     }
 }
