@@ -15,7 +15,8 @@ namespace TaxReporter.Application
         static void Main(string[] args)
         {
             IoCWrapper.InitContainer();
-            var ec = IoCWrapper.Get<ITaxDue>("EC");
+            var reader = IoCWrapper.Get<IInvoiceReaderService>();
+            var invoiceInputs = reader.GetInvoiceInputs("D:\\certs\\invoice_data.csv");
         }
     }
 }
