@@ -10,6 +10,6 @@ namespace TaxReporter.Core.Services
     /// </summary>
     public interface IInvoiceReaderService
     {
-        List<IParseInvoiceStatus> GetInvoiceInputs(string filePath);
+        IParseInvoiceStatus GetInvoiceInputs(string filePath);
     }
 }

@@ -10,8 +10,14 @@ namespace TaxReporter.Application
         private static void Main(string[] args)
         {
             IoCWrapper.InitContainer();
-            var reader = IoCWrapper.Get<IInvoiceReaderService>();
-            IEnumerable<IParseInvoiceStatus> invoiceInputs = reader.GetInvoiceInputs("D:\\certs\\invoice_data.csv");
+            //Run(args[0]);
+            Run("D:\\certs\\invoice_data.csv");
+        }
+
+        public static void Run(string filePath)
+        {
+            var readerService = IoCWrapper.Get<IInvoiceReaderService>();
+            var invoiceEntries = readerService.GetInvoiceInputs(filePath);
         }
     }
 }

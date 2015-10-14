@@ -31,7 +31,7 @@ namespace TaxReporter.Services.Tests
             //We will only test the ability of the code to read the csv files
             //Not actually check for the parsing logic because that code will be written
             //in the test case for parsing
-            Assert.AreEqual(invoiceInputs.Count,7);
+            Assert.AreEqual(invoiceInputs.Entries.Count,7);
         }
     }
 }

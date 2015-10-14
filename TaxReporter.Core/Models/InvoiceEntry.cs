@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Globalization;
 using TaxReporter.Core.Entities;
 
 namespace TaxReporter.Core.Models
@@ -20,24 +21,30 @@ namespace TaxReporter.Core.Models
             int number;
             double amount;
             DateTime invDate;
+            
+            if (line.Length != 4)
+            {
+                this.ErrorMessage = "Incorrect number of Data Elements in the Input";
+                return false;
+            }
 
             if (!int.TryParse(line[0], out number))
             {
-                ErrorMessage = "First column not a number";
+                ErrorMessage = "Invalid Format for Invoice Number";
                 return false;
             }
             Number = number;
 
             if (!line[1].StartsWith("D") && !line[1].StartsWith("I"))
             {
-                ErrorMessage = "Invalid Client Number";
+                ErrorMessage = "Invalid Format for Client Number";
                 return false;
             }
             Client = line[1];
 
-            if (!DateTime.TryParse(line[2], out invDate))
+            if (!DateTime.TryParseExact(line[2], "dd-mm-yyyy", CultureInfo.InvariantCulture, DateTimeStyles.None,  out invDate))
             {
-                ErrorMessage = "Invalid Date";
+                ErrorMessage = "Invalid Format for Date";
                 return false;
             }
             InvoiceDate = invDate;

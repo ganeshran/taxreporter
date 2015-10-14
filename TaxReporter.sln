@@ -13,6 +13,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{7856D39A
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TaxReporter.Services.Tests", "TaxReporter.Services.Tests\TaxReporter.Services.Tests.csproj", "{F042BFA8-AD4F-40B3-A9F0-86BC73716638}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TaxReporter.Core.Tests", "TaxReporter.Core.Tests\TaxReporter.Core.Tests.csproj", "{E0E817BE-6A83-4054-91DE-CBE1C073EB6D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,11 +41,16 @@ Global
 		{F042BFA8-AD4F-40B3-A9F0-86BC73716638}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F042BFA8-AD4F-40B3-A9F0-86BC73716638}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F042BFA8-AD4F-40B3-A9F0-86BC73716638}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E0E817BE-6A83-4054-91DE-CBE1C073EB6D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E0E817BE-6A83-4054-91DE-CBE1C073EB6D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E0E817BE-6A83-4054-91DE-CBE1C073EB6D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E0E817BE-6A83-4054-91DE-CBE1C073EB6D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{F042BFA8-AD4F-40B3-A9F0-86BC73716638} = {7856D39A-47D7-402A-9834-9DFADB8D1C35}
+		{E0E817BE-6A83-4054-91DE-CBE1C073EB6D} = {7856D39A-47D7-402A-9834-9DFADB8D1C35}
 	EndGlobalSection
 EndGlobal

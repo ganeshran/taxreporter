@@ -9,9 +9,9 @@ namespace TaxReporter.Services.Input
 {
     public class CsvInvoiceReaderService : IInvoiceReaderService
     {
-        public List<IParseInvoiceStatus> GetInvoiceInputs(string filePath)
+        public IParseInvoiceStatus GetInvoiceInputs(string filePath)
         {
-            var result = new List<IParseInvoiceStatus>();
+            var result = new ParseInvoiceStatus();
             if (!File.Exists(filePath))
                 throw new FileNotFoundException("Input File not Found");
 
@@ -19,7 +19,7 @@ namespace TaxReporter.Services.Input
             string line = String.Empty;
             while ((line = fileReader.ReadLine()) != null)
             {
-                result.Add(new ParseInvoiceStatus(line));
+                result.AddEntry(line);
             }
             return result;
         }
