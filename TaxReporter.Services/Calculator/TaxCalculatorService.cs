@@ -8,7 +8,7 @@ namespace TaxReporter.Services.Calculator
 {
     public abstract class TaxCalculatorService 
     {
-        protected abstract IEnumerable<ITaxDue> TaxesDue { get; set; }
+        public abstract IEnumerable<ITaxDue> TaxesDue { get; set; }
 
         public int DueTax(IInvoiceEntry invoice)
         {

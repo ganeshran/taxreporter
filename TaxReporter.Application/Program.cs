@@ -19,9 +19,17 @@ namespace TaxReporter.Application
         public static void Run(string filePath)
         {
             var readerService = IoCWrapper.Get<IInvoiceReaderService>();
+            var reporterService = IoCWrapper.Get<IOutputReportService>();
+
+
             var parseStatus = readerService.GetInvoiceInputs(filePath);
-            if (!parseStatus.IsSuccess) Console.WriteLine(parseStatus.AggregateErrorMessages());
-            
+            if (!parseStatus.IsSuccess)
+            {
+                Console.WriteLine(parseStatus.AggregateErrorMessages());
+                return;
+            }
+            Console.WriteLine(reporterService.Header);
+            Console.WriteLine(reporterService.OutputReport(parseStatus.Entries));
         }
     }
 }

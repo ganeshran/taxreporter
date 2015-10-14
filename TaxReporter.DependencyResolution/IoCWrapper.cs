@@ -5,6 +5,7 @@ using TaxReporter.Core.TaxImplementation;
 using TaxReporter.Core.Taxes;
 using TaxReporter.Services.Calculator;
 using TaxReporter.Services.Input;
+using TaxReporter.Services.ReportService;
 
 namespace TaxReporter.DependencyResolution
 {
@@ -25,6 +26,8 @@ namespace TaxReporter.DependencyResolution
                     x.For<ITaxDue>().Use<ServiceTax>().Named("ST");
 
                     x.For<ITaxDue>().Use<EducationCess>().Named("EC");
+
+                    x.For<IOutputReportService>().Use<MonthlyReporterService>();
                 });
         }
 

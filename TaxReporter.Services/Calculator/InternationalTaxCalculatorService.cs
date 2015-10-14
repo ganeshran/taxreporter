@@ -15,6 +15,6 @@ namespace TaxReporter.Services.Calculator
                 };
         }
 
-        protected override IEnumerable<ITaxDue> TaxesDue { get; set; }
+        public override IEnumerable<ITaxDue> TaxesDue { get; set; }
     }
 }

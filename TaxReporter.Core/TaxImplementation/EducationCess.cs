@@ -7,7 +7,9 @@ namespace TaxReporter.Core.TaxImplementation
     {
         public EducationCess()
         {
+            //This is a violation of IoC.. 
             Name = "Education Cess";
+            this.ChildTax = new ServiceTax();
         }
 
         public EducationCess(ServiceTax childTax) : this()
