@@ -1,15 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 using TaxReporter.Core.Entities;
 using TaxReporter.Core.Models;
 using TaxReporter.Core.Services;
 
 namespace TaxReporter.Services.Input 
 {
-    public class CsvInvoiceReader: IInvoiceReader
+    public class CsvInvoiceReaderService: IInvoiceReaderService
     {
         public List<IInvoiceEntry> GetInvoiceInputs()
         {

@@ -13,7 +13,7 @@ namespace TaxReporter.Application
         static void Main(string[] args)
         {
             IoCWrapper.InitContainer();
-            var reader = IoCWrapper.Get<IInvoiceReader>();
+            var reader = IoCWrapper.Get<IInvoiceReaderService>();
         }
     }
 }

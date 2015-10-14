@@ -18,7 +18,7 @@ namespace TaxReporter.DependencyResolution
         {
             _container = new Container(x =>
             {
-                x.For<IInvoiceReader>().Use<CsvInvoiceReader>();
+                x.For<IInvoiceReaderService>().Use<CsvInvoiceReaderService>();
             });
         }
 

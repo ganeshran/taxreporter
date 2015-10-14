@@ -12,7 +12,7 @@ namespace TaxReporter.Core.Services
     /// Our current requirements needs this to be only from a CSV file but that might 
     /// change in the future
     /// </summary>
-    public interface IInvoiceReader
+    public interface IInvoiceReaderService
     {
         List<IInvoiceEntry> GetInvoiceInputs();
     }
