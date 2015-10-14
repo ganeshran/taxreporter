@@ -17,14 +17,9 @@ namespace TaxReporter.DependencyResolution
             _container = new Container(x =>
                 {
                     x.For<IInvoiceReaderService>().Use<CsvInvoiceReaderService>();
-                    x.For<ITaxCalculatorService>()
-                     .Use<DomesticTaxCalculatorService>()
-                     .Named(ClientType.Domestic.ToString());
 
-                    x.For<ITaxCalculatorService>()
-                     .Use<InternationalTaxCalculatorService>()
-                     .Named(ClientType.International.ToString());
-
+                    x.For<IDomesticTaxCalculatorService>().Use<DomesticTaxCalculatorService>();
+                    x.For<IInternationalTaxCalculatorService>().Use<InternationalTaxCalculatorService>();
                     x.For<ITaxDue>().Use<ForeignRemitanceTax>().Named("FRT");
 
                     x.For<ITaxDue>().Use<ServiceTax>().Named("ST");
