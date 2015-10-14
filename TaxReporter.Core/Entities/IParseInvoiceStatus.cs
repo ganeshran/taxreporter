@@ -9,5 +9,7 @@ namespace TaxReporter.Core.Entities
         bool IsSuccess { get; set; }
 
         void AddEntry(string line);
+
+        string AggregateErrorMessages();
     }
 }

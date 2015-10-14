@@ -22,5 +22,17 @@ namespace TaxReporter.Core.Models
                 this.IsSuccess = false;
             this.Entries.Add(entry);
         }
+
+        public string AggregateErrorMessages()
+        {
+            int lineNum = 1;
+            var aggregate = "The input file has invalid data please fix following errors and try again:\n";
+            this.Entries.ForEach(x =>
+            {
+                if (x.ErrorMessage != null) aggregate +=  string.Format("Line {0} - {1}\n", lineNum, x.ErrorMessage);
+                lineNum++;
+            });
+            return aggregate;
+        }
     }
 }

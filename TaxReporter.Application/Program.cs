@@ -20,16 +20,8 @@ namespace TaxReporter.Application
         {
             var readerService = IoCWrapper.Get<IInvoiceReaderService>();
             var parseStatus = readerService.GetInvoiceInputs(filePath);
-            if (!parseStatus.IsSuccess)
-            {
-                Console.WriteLine("The input file has invalid data please fix following errors and try again:");
-                int lineNum = 1;
-                parseStatus.Entries.ForEach(x =>
-                    {
-                        if (x.ErrorMessage != null) Console.WriteLine("Line {0} - {1}", lineNum, x.ErrorMessage);
-                        lineNum++;
-                    });
-            }
+            if (!parseStatus.IsSuccess) Console.WriteLine(parseStatus.AggregateErrorMessages());
+            
         }
     }
 }
