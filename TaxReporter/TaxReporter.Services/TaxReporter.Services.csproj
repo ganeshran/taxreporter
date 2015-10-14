@@ -39,8 +39,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Calculator\DomesticTaxCalculatorService.cs" />
+    <Compile Include="Calculator\InternationalTaxCalculatorService.cs" />
     <Compile Include="Input\CsvInvoiceReader.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Calculator\TaxCalculatorService.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\TaxReporter.Core\TaxReporter.Core.csproj">
@@ -48,6 +51,7 @@
       <Name>TaxReporter.Core</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

@@ -5,8 +5,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using TaxReporter.Core.Entities;
+using TaxReporter.Core.Enums;
 using TaxReporter.Core.Models;
 using TaxReporter.Core.Services;
+using TaxReporter.Services;
+using TaxReporter.Services.Calculator;
 using TaxReporter.Services.Input;
 
 namespace TaxReporter.DependencyResolution
@@ -17,14 +20,26 @@ namespace TaxReporter.DependencyResolution
         public static void InitContainer()
         {
             _container = new Container(x =>
-            {
-                x.For<IInvoiceReaderService>().Use<CsvInvoiceReaderService>();
-            });
+                {
+                    x.For<IInvoiceReaderService>().Use<CsvInvoiceReaderService>();
+                    x.For<ITaxCalculatorService>()
+                     .Use<DomesticTaxCalculatorService>()
+                     .Named(ClientType.Domestic.ToString());
+
+                    x.For<ITaxCalculatorService>()
+                     .Use<InternationalTaxCalculatorService>()
+                     .Named(ClientType.International.ToString());
+                });
         }
 
         public static T Get<T>()
         {
             return _container.GetInstance<T>();
+        }
+
+        public static T Get<T>(string instanceName)
+        {
+            return _container.GetInstance<T>(instanceName);
         }
     }
 }
