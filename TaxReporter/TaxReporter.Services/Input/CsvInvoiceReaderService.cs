@@ -5,21 +5,23 @@ using TaxReporter.Core.Entities;
 using TaxReporter.Core.Models;
 using TaxReporter.Core.Services;
 
-namespace TaxReporter.Services.Input 
+namespace TaxReporter.Services.Input
 {
-    public class CsvInvoiceReaderService: IInvoiceReaderService
+    public class CsvInvoiceReaderService : IInvoiceReaderService
     {
-        public IEnumerable<IParseInvoiceStatus> GetInvoiceInputs(string filePath)
+        public List<IParseInvoiceStatus> GetInvoiceInputs(string filePath)
         {
-            if(!File.Exists(filePath))
+            var result = new List<IParseInvoiceStatus>();
+            if (!File.Exists(filePath))
                 throw new FileNotFoundException("Input File not Found");
 
             var fileReader = new StreamReader(filePath);
-            var line = String.Empty;
+            string line = String.Empty;
             while ((line = fileReader.ReadLine()) != null)
             {
-                yield return new ParseInvoiceStatus(line);
+                result.Add(new ParseInvoiceStatus(line));
             }
+            return result;
         }
     }
 }

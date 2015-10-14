@@ -5,16 +5,16 @@ namespace TaxReporter.Core.TaxImplementation
 {
     public class ServiceTax : ITaxDue
     {
-        public string Name { get; set; }
-
         public ServiceTax()
         {
-            this.Name = "Service Tax";
+            Name = "Service Tax";
         }
+
+        public string Name { get; set; }
 
         public int CalculateTaxDue(double invoiceAmount)
         {
-            return (int)Math.Round(invoiceAmount*0.10);
+            return (int) Math.Round(invoiceAmount*0.10);
         }
     }
 }

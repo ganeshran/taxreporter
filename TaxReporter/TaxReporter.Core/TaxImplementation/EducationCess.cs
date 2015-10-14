@@ -3,23 +3,23 @@ using TaxReporter.Core.Taxes;
 
 namespace TaxReporter.Core.TaxImplementation
 {
-    public class EducationCess: IDerivedTaxDue
+    public class EducationCess : IDerivedTaxDue
     {
-        public string Name { get; set; }
-
         public EducationCess()
         {
-            this.Name = "Education Cess";
+            Name = "Education Cess";
         }
 
-        public EducationCess(ServiceTax childTax): this()
+        public EducationCess(ServiceTax childTax) : this()
         {
-            this.ChildTax = childTax;
+            ChildTax = childTax;
         }
+
+        public string Name { get; set; }
 
         public int CalculateTaxDue(double invoiceAmount)
         {
-            return (int) Math.Round(this.ChildTax.CalculateTaxDue(invoiceAmount)*0.03);
+            return (int) Math.Round(ChildTax.CalculateTaxDue(invoiceAmount)*0.03);
         }
 
         public ITaxDue ChildTax { get; set; }

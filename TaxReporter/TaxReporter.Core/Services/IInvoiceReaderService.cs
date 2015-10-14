@@ -1,19 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 using TaxReporter.Core.Entities;
 
 namespace TaxReporter.Core.Services
 {
     /// <summary>
-    /// This class is an abstraction for reading in Invoices from various sources
-    /// Our current requirements needs this to be only from a CSV file but that might 
-    /// change in the future
+    ///     This class is an abstraction for reading in Invoices from various sources
+    ///     Our current requirements needs this to be only from a CSV file but that might
+    ///     change in the future
     /// </summary>
     public interface IInvoiceReaderService
     {
-        IEnumerable<IParseInvoiceStatus> GetInvoiceInputs(string filePath);
+        List<IParseInvoiceStatus> GetInvoiceInputs(string filePath);
     }
 }

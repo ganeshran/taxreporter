@@ -1,35 +1,30 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using TaxReporter.Core.Entities;
+﻿using TaxReporter.Core.Entities;
 
 namespace TaxReporter.Core.Models
 {
-    public class ParseInvoiceStatus: IParseInvoiceStatus
+    public class ParseInvoiceStatus : IParseInvoiceStatus
     {
+        public ParseInvoiceStatus(string input)
+        {
+            string[] line = input.Split(',');
+            if (line.Length != 4)
+            {
+                ErrorMessage = "Incorrect number of Columns";
+                IsSuccess = false;
+                InvoiceEntry = null;
+            }
+            InvoiceEntry = new InvoiceEntry();
+            if (!InvoiceEntry.PopulateObject(line))
+            {
+                IsSuccess = false;
+                ErrorMessage = InvoiceEntry.ErrorMessage;
+            }
+
+            IsSuccess = true;
+        }
+
         public IInvoiceEntry InvoiceEntry { get; set; }
         public bool IsSuccess { get; set; }
         public string ErrorMessage { get; set; }
-
-        public ParseInvoiceStatus(string input)
-        {
-            var line = input.Split(',');
-            if (line.Length != 4)
-            {
-                this.ErrorMessage = "Incorrect number of Columns";
-                this.IsSuccess = false;
-                this.InvoiceEntry = null;
-            }
-            this.InvoiceEntry = new InvoiceEntry();
-            if (!this.InvoiceEntry.PopulateObject(line))
-            {
-                this.IsSuccess = false;
-                this.ErrorMessage = InvoiceEntry.ErrorMessage;
-            }
-
-            this.IsSuccess = true;
-        }
     }
 }
