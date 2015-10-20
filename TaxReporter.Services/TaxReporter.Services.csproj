@@ -48,8 +48,7 @@
     <Compile Include="Calculator\TaxCalculatorService.cs" />
     <Compile Include="ReportService\MonthlyReporterService.cs" />
     <Compile Include="Taxes\EducationCess.cs" />
-    <Compile Include="Taxes\ForeignRemitanceTax.cs" />
-    <Compile Include="Taxes\ServiceTax.cs" />
+    <Compile Include="Taxes\SimplePercentageTax.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\TaxReporter.Core\TaxReporter.Core.csproj">

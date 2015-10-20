@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using TaxReporter.Core.DependencyResolution;
 using TaxReporter.Core.Enums;
+using TaxReporter.Core.Factories;
 using TaxReporter.Core.Services;
 using TaxReporter.Core.Taxes;
 
@@ -8,12 +9,12 @@ namespace TaxReporter.Services.Calculator
 {
     public class DomesticTaxCalculatorService : TaxCalculatorService, IDomesticTaxCalculatorService
     {
-        public DomesticTaxCalculatorService()
+        public DomesticTaxCalculatorService(ITaxFactory taxFactory)
         {
             TaxesDue = new List<ITaxDue>
                 {
-                    IoCWrapper.Get<ITaxDue>(TaxTypes.ServiceTax.ToString()),
-                    IoCWrapper.Get<ITaxDue>(TaxTypes.EducationCess.ToString())
+                    taxFactory.GetTaxInstance(TaxTypes.ServiceTax),
+                    taxFactory.GetTaxInstance(TaxTypes.EducationCess),
                 };
         }
 

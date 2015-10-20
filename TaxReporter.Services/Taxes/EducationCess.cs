@@ -1,17 +1,18 @@
 ﻿using System;
 using TaxReporter.Core.DependencyResolution;
 using TaxReporter.Core.Enums;
+using TaxReporter.Core.Factories;
 using TaxReporter.Core.Taxes;
 
 namespace TaxReporter.Services.Taxes
 {
     public class EducationCess : IDerivedTaxDue
     {
-        public EducationCess()
+        public EducationCess(ITaxFactory taxFactory)
         {
             //This is a violation of IoC.. 
             Name = "Education Cess";
-            this.ChildTax = IoCWrapper.Get<ITaxDue>(TaxTypes.ServiceTax.ToString());
+            this.ChildTax = taxFactory.GetTaxInstance(TaxTypes.ServiceTax);
         }
 
         public string Name { get; set; }

@@ -64,6 +64,7 @@
     <Compile Include="Services\IOutputReportService.cs" />
     <Compile Include="Services\ITaxCalculatorService.cs" />
     <Compile Include="Taxes\IDerivedTaxDue.cs" />
+    <Compile Include="Taxes\ISimplePercentTaxDue.cs" />
     <Compile Include="Taxes\ITaxDue.cs" />
   </ItemGroup>
   <ItemGroup>
