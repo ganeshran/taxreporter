@@ -3,7 +3,7 @@ using TaxReporter.Core.DependencyResolution;
 using TaxReporter.Core.Enums;
 using TaxReporter.Core.Taxes;
 
-namespace TaxReporter.Core.TaxImplementation
+namespace TaxReporter.Services.Taxes
 {
     public class EducationCess : IDerivedTaxDue
     {

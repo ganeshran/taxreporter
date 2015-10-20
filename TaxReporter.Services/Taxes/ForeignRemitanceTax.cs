@@ -1,7 +1,7 @@
 ﻿using System;
 using TaxReporter.Core.Taxes;
 
-namespace TaxReporter.Core.TaxImplementation
+namespace TaxReporter.Services.Taxes
 {
     public class ForeignRemitanceTax : ITaxDue
     {

@@ -2,11 +2,11 @@
 using TaxReporter.Core.DependencyResolution;
 using TaxReporter.Core.Enums;
 using TaxReporter.Core.Services;
-using TaxReporter.Core.TaxImplementation;
 using TaxReporter.Core.Taxes;
 using TaxReporter.Services.Calculator;
 using TaxReporter.Services.Input;
 using TaxReporter.Services.ReportService;
+using TaxReporter.Services.Taxes;
 
 namespace TaxReporter.DependencyResolution
 {
