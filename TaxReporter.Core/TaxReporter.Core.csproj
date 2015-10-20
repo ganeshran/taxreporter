@@ -58,8 +58,6 @@
     <Compile Include="Models\InvoiceEntry.cs" />
     <Compile Include="Models\ParseInvoiceStatus.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Services\IDomesticTaxCalculatorService.cs" />
-    <Compile Include="Services\IInternationalTaxCalculatorService.cs" />
     <Compile Include="Services\IInvoiceReaderService.cs" />
     <Compile Include="Services\IOutputReportService.cs" />
     <Compile Include="Services\ITaxCalculatorService.cs" />

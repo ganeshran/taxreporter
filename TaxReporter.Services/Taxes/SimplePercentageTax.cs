@@ -12,10 +12,6 @@ namespace TaxReporter.Services.Taxes
         public double PercentageTax { get; set; }
         public string Name { get; set; }
 
-        public SimplePercentageTax()
-        {
-            
-        }
         public int CalculateTaxDue(double invoiceAmount)
         {
             return (int) Math.Round(invoiceAmount*this.PercentageTax);

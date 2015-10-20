@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using TaxReporter.Core.DependencyResolution;
 using TaxReporter.Core.Entities;
 using TaxReporter.Core.Services;
 
@@ -16,15 +17,14 @@ namespace TaxReporter.Services.ReportService
             public int EC { get; set; }
             public int FRT { get; set;}
         }
-        private IDomesticTaxCalculatorService domesticCalculator;
-        private IInternationalTaxCalculatorService internationalTaxCalculator;
+        private ITaxCalculatorService domesticCalculator;
+        private ITaxCalculatorService internationalTaxCalculator;
         private Dictionary<string, Taxes> rolledUpInvoices; 
 
-        public MonthlyReporterService(IDomesticTaxCalculatorService _domesticTaxCalculatorService,
-                                      IInternationalTaxCalculatorService _internationalTaxCalculatorService)
+        public MonthlyReporterService()
         {
-            this.domesticCalculator = _domesticTaxCalculatorService;
-            this.internationalTaxCalculator = _internationalTaxCalculatorService;
+            this.domesticCalculator = IoCWrapper.Get<ITaxCalculatorService>("Domestic");
+            this.internationalTaxCalculator = IoCWrapper.Get<ITaxCalculatorService>("International");
             this.Header = "Month | Total Invoice Amount | ST | EC | FRT";
             this.rolledUpInvoices = new Dictionary<string, Taxes>();
         }

@@ -7,7 +7,7 @@ using TaxReporter.Core.Taxes;
 
 namespace TaxReporter.Services.Calculator
 {
-    public class InternationalTaxCalculatorService : TaxCalculatorService, IInternationalTaxCalculatorService
+    public class InternationalTaxCalculatorService : TaxCalculatorService
     {
         public InternationalTaxCalculatorService(ITaxFactory taxFactory)
         {

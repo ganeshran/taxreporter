@@ -6,7 +6,7 @@ using TaxReporter.Core.Taxes;
 
 namespace TaxReporter.Services.Calculator
 {
-    public abstract class TaxCalculatorService 
+    public abstract class TaxCalculatorService : ITaxCalculatorService
     {
         public abstract IEnumerable<ITaxDue> TaxesDue { get; set; }
 

@@ -23,8 +23,8 @@ namespace TaxReporter.DependencyResolution
                     x.For<ITaxDue>().Use<EducationCess>().Named(TaxTypes.EducationCess.ToString());
                     x.For<ISimplePercentTaxDue>().Use<SimplePercentageTax>();
                     x.For<ITaxFactory>().Use<TaxFactory>();
-                    x.For<IDomesticTaxCalculatorService>().Use<DomesticTaxCalculatorService>();
-                    x.For<IInternationalTaxCalculatorService>().Use<InternationalTaxCalculatorService>();
+                    x.For<ITaxCalculatorService>().Use<DomesticTaxCalculatorService>().Named("Domestic");
+                    x.For<ITaxCalculatorService>().Use<InternationalTaxCalculatorService>().Named("International");
                     x.For<IOutputReportService>().Use<MonthlyReporterService>();
                 });
         }
