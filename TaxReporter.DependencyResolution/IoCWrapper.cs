@@ -1,4 +1,5 @@
 ﻿using StructureMap;
+using TaxReporter.Core.DependencyResolution;
 using TaxReporter.Core.Enums;
 using TaxReporter.Core.Services;
 using TaxReporter.Core.TaxImplementation;
@@ -9,13 +10,12 @@ using TaxReporter.Services.ReportService;
 
 namespace TaxReporter.DependencyResolution
 {
-    public static class IoCWrapper
+    public static class BootStrapper
     {
-        private static IContainer _container;
 
         public static void InitContainer()
         {
-            _container = new Container(x =>
+            IoCWrapper.Container = new Container(x =>
                 {
                     x.For<IInvoiceReaderService>().Use<CsvInvoiceReaderService>();
 
@@ -31,14 +31,5 @@ namespace TaxReporter.DependencyResolution
                 });
         }
 
-        public static T Get<T>()
-        {
-            return _container.GetInstance<T>();
-        }
-
-        public static T Get<T>(string instanceName)
-        {
-            return _container.GetInstance<T>(instanceName);
-        }
     }
 }

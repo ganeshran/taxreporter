@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using TaxReporter.Core.DependencyResolution;
 using TaxReporter.Core.Entities;
 using TaxReporter.Core.Services;
 using TaxReporter.DependencyResolution;
@@ -11,8 +12,8 @@ namespace TaxReporter.Application
     {
         private static void Main(string[] args)
         {
-            IoCWrapper.InitContainer();
-            Run(args[0]);
+            BootStrapper.InitContainer();
+            Run("D:\\certs\\invoice_data.csv");
         }
 
         public static void Run(string filePath)
