@@ -48,11 +48,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DependencyResolution\IoCInit.cs" />
+    <Compile Include="DependencyResolution\IoCWrapper.cs" />
     <Compile Include="Entities\IClient.cs" />
     <Compile Include="Entities\IInvoiceEntry.cs" />
     <Compile Include="Entities\IParseInvoiceStatus.cs" />
     <Compile Include="Enums\ClientType.cs" />
+    <Compile Include="Enums\TaxTypes.cs" />
     <Compile Include="Models\InvoiceEntry.cs" />
     <Compile Include="Models\ParseInvoiceStatus.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -1,4 +1,6 @@
 ﻿using System;
+using TaxReporter.Core.DependencyResolution;
+using TaxReporter.Core.Enums;
 using TaxReporter.Core.Taxes;
 
 namespace TaxReporter.Core.TaxImplementation
@@ -9,12 +11,7 @@ namespace TaxReporter.Core.TaxImplementation
         {
             //This is a violation of IoC.. 
             Name = "Education Cess";
-            this.ChildTax = new ServiceTax();
-        }
-
-        public EducationCess(ServiceTax childTax) : this()
-        {
-            ChildTax = childTax;
+            this.ChildTax = IoCWrapper.Get<ITaxDue>(TaxTypes.ServiceTax.ToString());
         }
 
         public string Name { get; set; }

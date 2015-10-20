@@ -21,11 +21,11 @@ namespace TaxReporter.DependencyResolution
 
                     x.For<IDomesticTaxCalculatorService>().Use<DomesticTaxCalculatorService>();
                     x.For<IInternationalTaxCalculatorService>().Use<InternationalTaxCalculatorService>();
-                    x.For<ITaxDue>().Use<ForeignRemitanceTax>().Named("FRT");
+                    x.For<ITaxDue>().Use<ForeignRemitanceTax>().Named(TaxTypes.ForeignRemittanceTax.ToString());
 
-                    x.For<ITaxDue>().Use<ServiceTax>().Named("ST");
+                    x.For<ITaxDue>().Use<ServiceTax>().Named(TaxTypes.ServiceTax.ToString());
 
-                    x.For<ITaxDue>().Use<EducationCess>().Named("EC");
+                    x.For<ITaxDue>().Use<EducationCess>().Named(TaxTypes.EducationCess.ToString());
 
                     x.For<IOutputReportService>().Use<MonthlyReporterService>();
                 });

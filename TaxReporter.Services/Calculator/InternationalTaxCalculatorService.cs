@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using TaxReporter.Core.DependencyResolution;
+using TaxReporter.Core.Enums;
 using TaxReporter.Core.Services;
 using TaxReporter.Core.TaxImplementation;
 using TaxReporter.Core.Taxes;
@@ -12,7 +13,7 @@ namespace TaxReporter.Services.Calculator
         {
             TaxesDue = new List<ITaxDue>
                 {
-                    IoCWrapper.Get<ITaxDue>("FRT")
+                    IoCWrapper.Get<ITaxDue>(TaxTypes.ForeignRemittanceTax.ToString())
                 };
         }
 
