@@ -54,6 +54,7 @@
     <Compile Include="Entities\IParseInvoiceStatus.cs" />
     <Compile Include="Enums\ClientType.cs" />
     <Compile Include="Enums\TaxTypes.cs" />
+    <Compile Include="Factories\ITaxFactory.cs" />
     <Compile Include="Models\InvoiceEntry.cs" />
     <Compile Include="Models\ParseInvoiceStatus.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
